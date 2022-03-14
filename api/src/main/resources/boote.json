@@ -1,0 +1,206 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Fahrtenbuch API",
+    "description": "THD Spring sample application",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "boot",
+      "description": "Die Bootsapi"
+    }
+  ],
+  "paths": {
+    "/boot/": {
+      "get": {
+        "tags": [
+          "boot"
+        ],
+        "summary": "List all boats",
+        "description": "Mit dieser Methode können Sie die Liste von im System integrierten Booten laden.",
+        "operationId": "listBoote",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Boot"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "boot"
+        ],
+        "summary": "Create or modify a boat",
+        "operationId": "create_boot",
+        "requestBody": {
+          "description": "Das Boot was gespeichert werde soll",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Boot"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Boot"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "boot"
+        ],
+        "summary": "Create or modify a boat",
+        "operationId": "save_boot",
+        "requestBody": {
+          "description": "Das Boot was gespeichert werde soll",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Boot"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Boot"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/boot/{id}": {
+      "get": {
+        "tags": [
+          "boot"
+        ],
+        "summary": "Get a boat by id",
+        "operationId": "get_boot",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Boot"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "boot"
+        ],
+        "summary": "Delete a boat by it's id",
+        "operationId": "delete_boot",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Boot": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Die ID des Boots",
+            "format": "int64",
+            "example": 2
+          },
+          "created": {
+            "type": "string",
+            "description": "Wann das Boot angelegt wurde",
+            "format": "date-time",
+            "example": "2017-07-21T17:32:28Z"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name des Bootes",
+            "example": "Boaty McBoatface"
+          },
+          "sitze": {
+            "type": "integer",
+            "description": "Anzahl der Sitzplätze",
+            "format": "int32",
+            "example": 3
+          },
+          "klasse": {
+            "type": "string",
+            "description": "Bootstyp",
+            "example": "A"
+          }
+        }
+      }
+    }
+  }
+}
