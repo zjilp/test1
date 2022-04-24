@@ -27,12 +27,6 @@
             <artifactId>swagger-models</artifactId>
             <version>1.6.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.threeten/threetenbp -->
-        <dependency>
-            <groupId>org.threeten</groupId>
-            <artifactId>threetenbp</artifactId>
-            <version>1.5.2</version>
-        </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
@@ -73,6 +67,7 @@
                             <apiPackage>de.thdeg.systemdesign.bootfahrt.client.api</apiPackage>
                             <modelPackage>de.thdeg.systemdesign.bootfahrt.client.model</modelPackage>
                             <configOptions>
+                                <dateLibrary>java8</dateLibrary>
                                 <library>retrofit2</library>
                             </configOptions>
                         </configuration>
