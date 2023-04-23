@@ -1,5 +1,7 @@
 package de.thdeg.systemdesign.server;
 
+import de.thdeg.systemdesign.bootfahrt.model.Boot;
+
 import java.time.OffsetDateTime;
 
 public class BootClient {
