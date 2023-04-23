@@ -2,6 +2,7 @@ package de.thdeg.systemdesign.server;
 
 import de.thdeg.systemdesign.bootfahrt.api.BootApi;
 import de.thdeg.systemdesign.bootfahrt.model.Boot;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +36,7 @@ public class BootController implements BootApi {
 
     @Override
     public ResponseEntity<List<Boot>> listBoote() {
-        return BootApi.super.listBoote();
+        return new ResponseEntity<>(boote, HttpStatus.OK);
     }
 
     @Override
