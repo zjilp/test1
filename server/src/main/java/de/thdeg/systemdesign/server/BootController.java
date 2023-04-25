@@ -32,7 +32,11 @@ public class BootController implements BootApi {
          boote.add(boot0);
          boote.add(boot1);
     }
-
+    @Override
+    public ResponseEntity<Boot> createBoot(Boot body) {
+        boote.add(body);
+        return ResponseEntity.ok(body);
+    }
 
     @Override
     public ResponseEntity<List<Boot>> listBoote() {
